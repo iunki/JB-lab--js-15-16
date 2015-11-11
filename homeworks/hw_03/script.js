@@ -9,10 +9,10 @@
 function isValidSelector(selector){
     /*var r1 = /([a-zA-z]+[a-zA-Z0-9-_]*)*#([a-z,A-z]+[a-zA-Z0-9-_]*)+/;                           /!*id*!/
     var r2 = /\.[a-zA-z]+[a-zA-Z0-9-_]*!/;                                                        /!*classes*!/
-    var r3 = /\[[a-zA-Z]+(([\^\|\*~\$])?=(("[a-zA-Z]")|('[a-zA-Z]')))?]/;                        /!*attributes*!/
+    var r3 = /\[[a-zA-Z]+(([\^\|\*~\$])?=(("[a-zA-Z]*")|('[a-zA-Z]*')))?]/;                        /!*attributes*!/
     var r4 = /[>~\+\s]/;                                                                        /!*relationships in classes*!/
     /!*var r5 = (((r1)|(r2))+(r4)?((r1)|(r2)))*(r3)*;    *!/*/
-    var regExp = /^(((([a-zA-z]+[a-zA-Z0-9-_]*)*#([a-z,A-z]+[a-zA-Z0-9-_]*)+)|(\.[a-zA-z]+[a-zA-Z0-9-_]*))+([>~\+\s])?((([a-zA-z]+[a-zA-Z0-9-_]*)*#([a-z,A-z]+[a-zA-Z0-9-_]*)+)|(\.[a-zA-z]+[a-zA-Z0-9-_]*)))*(\[[a-zA-Z]+(([\^\|\*~\$])?=(("[a-zA-Z]")|('[a-zA-Z]')))?])*$/;
+    var regExp = /^(((([a-zA-z]+[a-zA-Z0-9-_]*)*#([a-z,A-z]+[a-zA-Z0-9-_]*)+)|(\.[a-zA-z]+[a-zA-Z0-9-_]*))+([>~\+\s])?((([a-zA-z]+[a-zA-Z0-9-_]*)*#([a-z,A-z]+[a-zA-Z0-9-_]*)+)|(\.[a-zA-z]+[a-zA-Z0-9-_]*)))*(\[[a-zA-Z]+(([\^\|\*~\$])?=(("[a-zA-Z]*")|('[a-zA-Z]*')))?])*$/;
     return regExp.test(selector);
 
 }
@@ -56,9 +56,6 @@ function stringTempl(templ){
         throw new Error ("Invalid arguments count");
     }
     for (var i=0; i<arr.length; i++){
-        if (typeof arguments[i] != "string"){
-            throw new Error ("Invalid arguments");
-        }
         templ = templ.replace(arr[i],arguments[i+1])
     }
     return templ;
