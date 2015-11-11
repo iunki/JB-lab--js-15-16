@@ -12,7 +12,7 @@ function isValidSelector(selector){
     var r3 = /\[[a-zA-Z]+(([\^\|\*~\$])?=(("[a-zA-Z]*")|('[a-zA-Z]*')))?]/;                        /!*attributes*!/
     var r4 = /[>~\+\s]/;                                                                        /!*relationships in classes*!/
     /!*var r5 = (((r1)|(r2))+(r4)?((r1)|(r2)))*(r3)*;    *!/*/
-    var regExp = /^(((([a-zA-z]+[a-zA-Z0-9-_]*)*#([a-z,A-z]+[a-zA-Z0-9-_]*)+)|(\.[a-zA-z]+[a-zA-Z0-9-_]*))+([>~\+\s])?((([a-zA-z]+[a-zA-Z0-9-_]*)*#([a-z,A-z]+[a-zA-Z0-9-_]*)+)|(\.[a-zA-z]+[a-zA-Z0-9-_]*)))*(\[[a-zA-Z]+(([\^\|\*~\$])?=(("[a-zA-Z]*")|('[a-zA-Z]*')))?])*$/;
+    var regExp = /^((((\w+[\w\d-_]*)*#(\w+[\w\d-_]*)+)|(\.\w+[\w\d-_]*))+([>~\+\s])?(((\w+[\w\d-_]*)*#(\w+[\w\d-_]*)+)|(\.[\w]+[\w\d-_]*)))*(\[\w+(([\^\|\*~\$])?=(("\w*")|('\w*')))?])*$/;
     return regExp.test(selector);
 
 }
